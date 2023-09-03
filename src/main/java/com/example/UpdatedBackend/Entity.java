@@ -3,14 +3,18 @@ package com.example.UpdatedBackend;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
-@Document(collection = "entities")
+@CrossOrigin(origins = "*")
+@Document(collection = "students")
 public class Entity {
 
     @Id
     private String id;
-    private String name;
-    private int age;
+    private String firstname;
+    private String lastname;
+    private String address;
+    private int mobile;
 
     public String getId() {
         return id;
@@ -20,37 +24,59 @@ public class Entity {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getFirstname() {
+        return firstname;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setFirstname(String firstname) {
+        this.firstname = firstname;
     }
 
-    public int getAge() {
-        return age;
+    public String getLastname() {
+        return lastname;
     }
 
-    public Entity(String id, String name, int age) {
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public int getMobile() {
+        return mobile;
+    }
+
+    public void setMobile(int mobile) {
+        this.mobile = mobile;
+    }
+    public Entity(String id, String firstname, String lastname, String address, int mobile) {
         this.id = id;
-        this.name = name;
-        this.age = age;
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.address = address;
+        this.mobile = mobile;
     }
 
-    public void setAge(int age) {
-        this.age = age;
+    public Entity() {
     }
-// Getters and Setters
 
     @Override
     public String toString() {
         return "Entity{" +
                 "id='" + id + '\'' +
-                ", name='" + name + '\'' +
-                ", age=" + age +
+                ", firstname='" + firstname + '\'' +
+                ", lastname='" + lastname + '\'' +
+                ", address='" + address + '\'' +
+                ", mobile=" + mobile +
                 '}';
     }
+// Getters and Setters
 
     // Constructors
 
